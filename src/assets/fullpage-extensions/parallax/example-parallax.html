@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fullPage.js - Parallax Extension</title>
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="Parallax Scrolling fullPage.js Extension." />
+    <meta name="keywords"  content="fullpage,extension,addon,plugin,parallax,parallax scrolling, parallax snapping,scrollbar, parallax backgrounds, parallax images" />
+    <meta name="Resource-type" content="Document" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://alvarotrigo.com/fullPage/examples/examples.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900" rel="stylesheet">
+
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+
+    <style>
+        h1{
+            font-weight: 900;
+            font-size: 8em;
+            -webkit-text-shadow: 0 .3rem .9rem rgba(0,0,0,.4);
+            text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
+            letter-spacing: -3px;
+        }
+        h1,
+        .intro p{
+            color: #fff;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        .intro p{
+            text-shadow: -1px 1px 8px rgba(0,0,0,.8);
+        }
+        #section1 h1{
+            -webkit-text-shadow: none;
+            text-shadow: none;
+        }
+        #slide1-1 h1{
+            color: #444;
+        }
+        /*
+        * Setting the backgrounds for each section / slide
+        */
+        #section4 .fp-bg:before,
+        #section2 .fp-bg:before{
+            content: '';
+            position: absolute;
+            display: block;
+            background: rgba(173, 173, 173, 0.2);
+            top:0;
+            bottom:0;
+            height: 100%;
+            width: 100%;
+        }
+        .fp-bg{
+            background-size: cover;
+            transform: translate3d(0,0,0);
+            -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+            backface-visibility: hidden;
+        }
+        #slide1-1 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-1-1.jpg');
+            background-position: center 80%;
+        }
+        #slide1-2 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3-2.jpg');
+        }
+        #slide1-3 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3-3.jpg');
+        }
+
+        #section2 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-2.jpg');
+            background-position: center 60%;
+        }
+        #section2 h1{
+            color: #fff;
+        }
+        #slide3-1 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3.jpg');
+            background-position: 50% 65%;
+        }
+        #slide3-2 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3-2.jpg');
+        }
+        #slide3-3 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3-3.jpg');
+        }
+        #slide3-4 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-3-4.jpg');
+        }
+        #section4 .fp-bg{
+            background-image: url('https://alvarotrigo.com/fullPage/extensions/imgs/parallax/parallax-4.jpg');
+        }
+        .button a.button-purchase:hover {
+            background-color: #3cc63c !important;
+            color: #fff !important;
+        }
+        .documentation a{
+            font-size: 13px;
+            margin: 20px 0;
+            padding: 0;
+            color: #222;
+        }
+
+        /*
+        * Configurations
+        */
+        #actions{
+            position:fixed;
+            top: 73px;
+            left: 30px;
+            z-index: 99999;
+        }
+        #actions li{
+            background: rgba(0,0,0,0.8);
+            padding: 7px;
+            margin: 2px;
+            color: #ccc;
+            display: inline-block;
+            cursor: pointer;
+        }
+        #actions li:hover{
+            color: #fff;
+            background: #81A140;
+        }
+        #actions .active{
+            color: #fff;
+            background: #81A140;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="actions">
+    <li id="turnOn" class="active">Turn on</li>
+    <li id="turnOff">Turn off</li>
+</ul>
+
+<ul id="menu">
+    <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+    <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+    <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+</ul>
+
+<div id="myContainer">
+    <div class="section" id="section1">
+        <div class="slide" id="slide1-1">
+            <div class="fp-bg"></div>
+            <h1>PARALLAX</h1>
+            <p>Use `parallax: true`. Made easy.</p>
+            <p class="documentation">
+                <a href="https://github.com/alvarotrigo/fullPage.js/wiki/Extension---Parallax">Documentation</a>
+            </p>
+
+        </div>
+        <div class="slide" id="slide1-2">
+            <div class="fp-bg"></div>
+            <div class="intro">
+                <h1>fullPage.js</h1>
+                <img src="https://alvarotrigo.com/fullPage/extensions/imgs/parallax/trusted.png" />
+            </div>
+        </div>
+        <div class="slide" id="slide1-3">
+            <div class="fp-bg"></div>
+            <div class="intro">
+                <h1>Free support</h1>
+                <p>Extension issues are supported at no extra cost!</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <div class="fp-bg" id="section2"></div>
+        <div class="intro">
+            <h1>FLEXIBLE</h1>
+            <p>Put not limits to yourself</p>
+            <p>Use parallax even without scroll bar!</p>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <div class="slide" id="slide3-1">
+            <div class="fp-bg"></div>
+            <div class="intro">
+                <h1>TAKE CONTROL</h1>
+                <p>Totally configurable.</p>
+                <p>For sections & slides! </p>
+            </div>
+        </div>
+        <div class="slide" id="slide3-2">
+            <div class="fp-bg"></div>
+            <div class="intro">
+                <h1>GUARRANTEE</h1>
+                <p>30 days money back guarratee if no domain was activated.</p>
+            </div>
+        </div>
+        <div class="slide" id="slide3-3">
+            <div class="intro">
+                <div class="fp-bg"></div>
+                <h1>TRUSTED</h1>
+                <p>Join thoudands of other developers who trusted fullPage.js extensions!</p>
+            </div>
+        </div>
+        <div class="slide" id="slide3-4">
+            <div class="fp-bg"></div>
+            <div class="intro">
+                <h1>DOCUMENTED</h1>
+                <p>If fullPage.js is known for one thing it's for its great documentation!</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section4">
+        <div class="fp-bg"></div>
+        <div class="intro">
+            <h1>IMPRESS</h1>
+            <p>Take it to the next level!</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="fullpage.parallax.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"></script>
+
+<script type="text/javascript">
+
+    new fullpage('#myContainer', {
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+        menu: '#menu',
+        slidesNavigation: true,
+        scrollingSpeed: 1000,
+
+        //In addition to the extension license you'll 
+        //need to acquire a fullPage.js license from https://goo.gl/5x9a22
+        licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+
+        parallax: true,
+        parallaxKey: 'INSERT YOUR EXTENSION KEY HERE', //see https://goo.gl/xkUmHS
+        parallaxOptions: {
+            type: 'reveal',
+            percentage: 62,
+            property: 'translate'
+        }
+    });
+
+
+    //action buttons
+    document.getElementById('turnOn').addEventListener('click', function(){
+        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+        addClass(this, 'active');
+
+        fullpage_api.parallax.init();
+    });
+
+    document.getElementById('turnOff').addEventListener('click', function(){
+        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+        addClass(this, 'active');
+
+        fullpage_api.parallax.destroy();
+    });
+
+    //utils
+    function removeClass(item, className){
+        if (item.classList){
+            item.classList.remove(className);
+        }
+        else{
+            item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+        return item;
+    }
+
+    function addClass(item, className) {
+        if (item.classList){
+            item.classList.add(className);
+        }
+        else{
+          item.className += ' ' + className;
+        }
+        return item;
+    }
+</script>
+
+</body>
+</html>

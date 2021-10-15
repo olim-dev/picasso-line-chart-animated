@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Drag And Move Extension - fullPage.js</title>
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="Drag And Move sections and slides with fullpage.js" />
+    <meta name="keywords"  content="fullpage,extension,addon,dragAndMove,drag,drag and drop,grab,dragging,grabbing,swipe,finger,touch,snapping,snap,sections,panels,slides,onepage,scroll" />
+    <meta name="Resource-type" content="Document" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://alvarotrigo.com/fullPage/examples/examples.css" />
+
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+</head>
+<body>
+
+<ul id="menu">
+    <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+    <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+    <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+</ul>
+
+<div id="myContainer">
+    <div class="section" id="section1">
+        <div class="slide" id="slide11">
+            <di class="intro">
+                <h1>Drag And Move</h1>
+                <p>
+                    Use `dragAndMove: true` or the options `fingersonly`, `mouseonly`, `horizontal`, `vertical
+                </p>
+            </di>
+        </div>
+        <div class="slide" id="slide12"><h1>Slide 1.2</h1></div>
+        <div class="slide" id="slide13"><h1>Slide 1.3</h1></div>
+    </div>
+    <div class="section" data-percentage="60" id="section2">
+        <div class="content"><h1>Section 2</h1></div>
+    </div>
+    <div class="section" id="section3">
+        <div class="slide"><h1>Slide 3.1</h1></div>
+        <div class="slide"><h1>Slide 3.2</h1></div>
+        <div class="slide"><h1>Slide 3.3</h1></div>
+        <div class="slide"><h1>Slide 3.4</h1></div>
+    </div>
+    <div class="section" id="section4"><h1>Section 4</h1></div>
+</div>
+
+<script type="text/javascript" src="fullpage.dragAndMove.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"></script>
+
+<script type="text/javascript">
+    new fullpage('#myContainer', {
+        sectionsColor: ['#c34bab', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+        menu: '#menu',
+        slidesNavigation: true,
+
+        //In addition to the extension license you'll 
+        //need to acquire a fullPage.js license from https://goo.gl/5x9a22
+        licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+        
+        dragAndMove: true,
+        dragAndMoveKey: 'INSERT YOUR EXTENSION KEY HERE' //see https://goo.gl/xkUmHS
+    });
+</script>
+
+</body>
+</html>
